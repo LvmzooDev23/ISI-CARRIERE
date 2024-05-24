@@ -1,3 +1,3 @@
 <?php
-    $title = "ISI CARRIERE"
+    $title = "ISI CARRIERE";
 ?>
