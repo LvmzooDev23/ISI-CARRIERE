@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!in_array(null, $informations)) {
     $student = add_student($name, $firstname, $email, $password, $phone, $level, $speciality);
     if ($student) {
-      require_once "../success.php";
+      require_once "success.php";
     }
   }
 }
@@ -111,27 +111,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         <div class="relative z-0 w-full mb-5">
-          <select name="niveau" value="" onclick="this.setAttribute('value', this.value);" class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-            <option value="" selected disabled hidden></option>
-            <option value="L1">Licence 1</option>
-            <option value="L2">Licence 2</option>
-            <option value="L3">Licence 3</option>
-            <option value="M1">Master 1</option>
-            <option value="M2">Master 2</option>
+          <select name="niveau" id="HeadlineAct" class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
+            <option value="">Choisir votre niveau</option>
+            <option value="BT1">BREVET DE TECHNICIEN 1</option>
+            <option value="BT2">BREVET DE TECHNICIEN 2</option>
+            <option value="BT3">BREVET DE TECHNICIEN 3</option>
+            <option value="L1">LICENCE 1</option>
+            <option value="L2">LICENCE 2</option>
+            <option value="L3">LICENCE 3</option>
+            <option value="M1">MASTER 1</option>
+            <option value="M2">MASTER 2</option>
           </select>
-          <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Choisir le niveau</label>
           <span class="text-sm text-red-600 hidden" id="error">Veuillez sélectionner un niveau</span>
         </div>
         <div class="relative z-0 w-full mb-5">
-          <select name="specialite" value="" onclick="this.setAttribute('value', this.value);" class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200">
-            <option value="" selected disabled hidden></option>
+          <select name="specialite" id="HeadlineAct" class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm">
+            <option value="">Choisir une filière</option>
             <option value="GL">Génie Logiciel</option>
             <option value="RI">Réseaux Informatiques</option>
-            <option value="RT">Réseaux Telecoms</option>
+            <option value="RT">Réseaux Télécoms</option>
             <option value="IAGE">Informatique Appliquée à la Gestion des Entreprises</option>
             <option value="CS">Cybersécurité</option>
+            <option value="MM">Multimédia</option>
+            <option value="II">Informatique Industrielle</option>
           </select>
-          <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Choisir la filière</label>
+
           <span class="text-sm text-red-600 hidden" id="error">Veuillez sélectionner une filière</span>
         </div>
 

@@ -6,6 +6,7 @@ if (isset($_POST['deconnexion'])) {
     session_destroy();
     header("Location: index.php");
 }
+require_once("menu.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
