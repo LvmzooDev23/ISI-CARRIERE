@@ -38,19 +38,23 @@ function allStudents()
 function getStudentById($id)
 {
     global $connexion;
-    $sql = "SELECT * FROM etudiant WHERE idEtudiant='$id' ";
-    mysqli_query($connexion, $sql)->fetch_all(2);
+    $sql = "SELECT * FROM etudiant WHERE idEtudiant =$id";
+    if (mysqli_query($connexion, $sql)) {
+        $etudiant = mysqli_query($connexion, $sql)->fetch_all(2);
+        return $etudiant;
+    }
+    return null;
 }
 
 function login_student($email, $password)
 {
     global $connexion;
-    $sql = "SELECT * FROM etudiant WHERE mailEtudiant='$email' 
+    $sql = "SELECT idEtudiant FROM etudiant WHERE mailEtudiant='$email' 
                                     AND motDePasseEtudiant='$password'";
     if (mysqli_query($connexion, $sql)) {
         $etudiant = mysqli_query($connexion, $sql)->fetch_all(2);
         session_start();
-        $_SESSION['etu'] = $etudiant;
+        $_SESSION['etu'] = $etudiant[0][0];
         return 1;
     } else {
         // header("Location: ../Etudiant/index.php");
