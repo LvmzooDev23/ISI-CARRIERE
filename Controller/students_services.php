@@ -1,5 +1,7 @@
 <?php
 require_once("db.php");
+require_once("stages_services.php");
+
 
 function verifyPhoneStudents($telephone)
 {
@@ -22,8 +24,8 @@ function verifyEmailStudents($email)
 function add_student($nom, $prenom, $mail, $password, $telephone, $niveau, $specialite)
 {
     global $connexion;
-    $sql = "INSERT INTO etudiant
-                VALUES (NULL,'$nom','$prenom','$mail','$password','$telephone','$niveau','$specialite')";
+    $sql = "INSERT INTO etudiant 
+            VALUES (NULL,'$nom','$prenom','$mail','$password','$telephone','$niveau','$specialite')";
     $result = mysqli_query($connexion, $sql);
     return $result;
 }

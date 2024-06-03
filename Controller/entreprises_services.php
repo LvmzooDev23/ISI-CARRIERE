@@ -1,5 +1,6 @@
 <?php
 require_once("db.php");
+require_once("stages_services.php");
 
 function verifyPhoneEntreprise($telephone)
 {
@@ -29,23 +30,25 @@ function add_entreprise($nom, $secteur, $adresse, $telephone, $mail, $password)
     return $result;
 }
 
-function allEntreprises()
+function getAllEntreprises()
 {
     global $connexion;
     $sql = "SELECT * FROM entreprise";
-    mysqli_query($connexion, $sql)->fetch_all(2);
+    $result = mysqli_query($connexion, $sql)->fetch_all(2);
+    return $result;
 }
 
 function getEntrepriseById($id)
 {
     global $connexion;
-    $sql = "SELECT * FROM entreprise WHERE idEntreprise='$id' ";
-    mysqli_query($connexion, $sql)->fetch_all(2);
+    $sql = "SELECT * FROM entreprise WHERE idEntreprise=$id";
+    $resultat = mysqli_query($connexion, $sql)->fetch_all(2);
+    return $resultat;
 }
 function login_entreprise($email, $password)
 {
     global $connexion;
-    $sql = "SELECT idEntreprise FROM etudiant WHERE mailEntreprise='$email' 
+    $sql = "SELECT idEntreprise FROM entreprise WHERE mailEntreprise='$email' 
                                     AND motDePasseEntreprise='$password'";
     if (mysqli_query($connexion, $sql)) {
         $entreprise = mysqli_query($connexion, $sql)->fetch_all(2);

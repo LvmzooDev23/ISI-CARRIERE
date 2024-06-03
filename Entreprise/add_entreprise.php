@@ -14,20 +14,36 @@ $tabErrors = [
     "specialite" => "Le champ 'Specialité' est obligatoire !!",
 ];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['nom'];
-    $secteur = $_POST['secteur'];
-    $adresse = $_POST['adresse'];
-    $email = verifyEmailEntreprise($_POST['email']) ? $email = $_POST['email'] : null;
-    $telephone = verifyPhoneEntreprise($_POST['telephone']) ? $phone = $_POST['telephone'] : null;
-    $password = $_POST['motdepasse'];
-    $informations = [$name, $secteur, $adresse, $telephone, $email, $password];
-    if (!in_array(null, $informations)) {
+    try {
+        $name = $_POST['nom'] ?? null;
+        $secteur = $_POST['secteur'] ?? null;
+        $adresse = $_POST['adresse'] ?? null;
+        $email = verifyEmailEntreprise($_POST['email']) ? $_POST['email'] : null;
+        $telephone = verifyPhoneEntreprise($_POST['telephone']) ? $_POST['telephone'] : null;
+        $password = $_POST['motdepasse'] ?? null;
+
+        if (is_null($name) || is_null($secteur) || is_null($adresse) || is_null($email) || is_null($telephone) || is_null($password)) {
+            array_walk($GLOBALS, function ($value, $key) {
+                if (is_null($value)) {
+                    throw new LogicException("Le champ '$key' est obligatoire");
+                }
+            }, NULL, TRUE);
+            throw new LogicException("Tous les champs sont obligatoires");
+        }
+
+        $informations = [$name, $secteur, $adresse, $telephone, $email, $password];
         $entreprise = add_entreprise($name, $secteur, $adresse, $telephone, $email, $password);
         if ($entreprise) {
             include_once('success.php');
         }
+    } catch (Throwable $e) {
+        // Handle exception
+        error_log("Exception caught in add_entreprise.php\n" . $e->getMessage() . "\n" . $e->getFile() . ':' . $e->getLine() . "\n" . $e->getTraceAsString());
+        require_once('error.php');
     }
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -80,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="min-h-screen bg-gray-300 p-0 sm:p-12">
         <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
             <h1 class="text-2xl text-center font-bold mb-8 underline">Formulaire Inscription Entreprise</h1>
-            <p><?php var_dump($entreprise) ?></p>
             <form id="form" novalidate method="post">
                 <div class="relative z-0 w-full mb-5">
                     <input autocomplete="off" type="text" name="nom" placeholder=" " required class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" />
