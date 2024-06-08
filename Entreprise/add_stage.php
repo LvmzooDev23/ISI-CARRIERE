@@ -12,10 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $debutStage = $_POST['debutStage'];
     $dureeStage = $_POST['dureeStage'];
     $deadline = $_POST['deadline'];
+    $datePublication = date('Y-m-d');
     $entreprise = $_SESSION['etp'];
-    $informations = [$titre, $description, $niveau, $annee, $debutStage, $dureeStage, $deadline, $entreprise];
+    $informations = [$titre, $description, $niveau, $annee, $debutStage, $dureeStage, $deadline, $datePublication, $entreprise];
     if (!in_array(null, $informations)) {
-        $stage = add_stage($titre, $description, $niveau, $annee, $debutStage, $dureeStage, $deadline, $entreprise);
+        $stage = add_stage($titre, $description, $niveau, $annee, $debutStage, $dureeStage, $deadline, $datePublication, $entreprise);
     }
     if (!$stage) {
         require_once "error.php";
@@ -115,9 +116,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <button class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 mx-5 text-center text-base font-semibold text-white outline-none">
                         Envoyer
                     </button>
-                    <a type="button" href="#" class="hover:shadow-form rounded-md bg-slate-900 py-3 px-8 mx-5 text-center text-base font-semibold text-white outline-none">
+                    <button type="reset" class="hover:shadow-form rounded-md bg-slate-900 py-3 px-8 mx-5 text-center text-base font-semibold text-white outline-none">
                         Annuler
-                    </a>
+                    </button>
                     <a type="button" href="home.php" class="hover:shadow-form rounded-md bg-red-500 py-3 px-8 mx-5 text-center text-base font-semibold text-white outline-none">
                         Retour
                     </a>
