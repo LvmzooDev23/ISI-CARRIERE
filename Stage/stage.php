@@ -1,7 +1,15 @@
 <?php
+session_start();
 require_once("../Controller/entreprises_services.php");
+require_once("../Controller/students_services.php");
 $id = $_GET['id'];
 $stage = getStageById($id);
+$etudiant = getStudentById($_SESSION['etu']);
+$dateSoumission = date('Y-m-d');
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $candidature = postuler($etudiant[0][0], $stage[0][0], $dateSoumission);
+    header('location: ../Etudiant/candidatures.php');
+}
 ?>
 <html lang="fr">
 
@@ -13,7 +21,6 @@ $stage = getStageById($id);
 </head>
 
 <body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" style="background-image:url('https://source.unsplash.com/1L71sPT5XKc');">
-
     <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
 
         <!--Main Col-->
@@ -29,8 +36,7 @@ $stage = getStageById($id);
                 <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
                     <svg class="h-4 fill-current text-green-700 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z" />
-                    </svg> STAGE:
-                    <span><?= $stage[0][1] ?></span>
+                    </svg> Profil Recherché: &nbsp;<span><?= strtoupper($stage[0][1]) ?></span>
                 </p>
                 <p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start">
                     <svg class="h-4 fill-current text-green-700 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -40,9 +46,14 @@ $stage = getStageById($id);
                 <p class="pt-8 text-sm">Totally optional short description about yourself, what you do and so on.</p>
 
                 <div class="pt-12 pb-8">
-                    <button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
-                        Postuler
-                    </button>
+                    <form action="" method="post">
+                        <button name="postuler" class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
+                            Postuler
+                        </button>
+                        <a href="../Etudiant/home.php" class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
+                            ANNULER
+                        </a>
+                    </form>
                 </div>
 
                 <div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">

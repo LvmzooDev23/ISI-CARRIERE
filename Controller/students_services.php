@@ -63,3 +63,22 @@ function login_student($email, $password)
         return 0;
     }
 }
+function postuler($idEtudiant, $idStage, $dateSoummission)
+{
+    global $connexion;
+    $statut = "ATT";
+    $sql = "INSERT INTO candidature
+            VALUES ('NULL','$idEtudiant','$idStage','$statut','$dateSoummission') ";
+    $result = mysqli_query($connexion, $sql);
+    return $result;
+}
+function getAllCandidatures($idEtudiant)
+{
+    global $connexion;
+    $sql = "SELECT * FROM candidature,stage
+            WHERE candidature.stage = stage.idStage 
+            AND candidature.etudiant = '$idEtudiant'
+            ORDER BY idCandidature DESC";
+    $result = mysqli_query($connexion, $sql)->fetch_all(1);
+    return $result;
+}

@@ -57,7 +57,7 @@ $stages = getAllStage();
                                         <div class="flex flex-1">
                                             <div class="">
                                                 <p class="text-sm font-semibold "><?= $stage[11] ?></p>
-                                                <p class="text-sm text-gray-500">Date de limite: <?= $stage[7] ?></p>
+                                                <p class="text-sm text-gray-500">Deadline: <b><?= $stage[7] ?></b></p>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +65,8 @@ $stages = getAllStage();
                                         <div class="text-sm flex items-center text-gray-500 ">
                                             <?php $date = new DateTime();
                                             $duree = $date->diff(new DateTime($stage[8]));
-                                            echo $duree->format('%a jours'); ?>
+                                            echo ($duree->format('%a') > 0 ? $duree->format('%a jours') : "Aujourd'hui");
+                                            ?>
                                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                             </svg>
