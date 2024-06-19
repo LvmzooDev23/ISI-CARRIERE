@@ -63,6 +63,7 @@ function login_student($email, $password)
         return 0;
     }
 }
+
 function postuler($idEtudiant, $idStage, $dateSoummission)
 {
     global $connexion;
@@ -72,6 +73,7 @@ function postuler($idEtudiant, $idStage, $dateSoummission)
     $result = mysqli_query($connexion, $sql);
     return $result;
 }
+
 function getAllCandidatures($idEtudiant)
 {
     global $connexion;

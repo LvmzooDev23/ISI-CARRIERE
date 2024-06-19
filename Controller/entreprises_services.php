@@ -60,3 +60,15 @@ function login_entreprise($email, $password)
         return 0;
     }
 }
+function getAllCandidaturesFromEntreprise($idEntreprise)
+{
+    global $connexion;
+    $sql = "SELECT * FROM stage,candidature,etudiant,entreprise 
+            WHERE stage.entreprise = entreprise.idEntreprise 
+            AND candidature.stage = stage.idStage
+            AND stage.entreprise = '$idEntreprise'
+            AND candidature.etudiant = etudiant.idEtudiant";
+
+    $result = mysqli_query($connexion, $sql)->fetch_all(1);
+    return $result;
+}
