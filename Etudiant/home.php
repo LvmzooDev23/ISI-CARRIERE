@@ -11,18 +11,45 @@ $stages = getAllStage();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
     <title><?= $title ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <h1>DASHBOARD ETUDIANTS</h1>
-    <?php
-    var_dump($_SESSION['etu']);
-    // var_dump($stages);
-
-    ?>
-
+    <div class="top_page">
+        <!-- <h1 class="title_top_page" align="center">DASHBOARD ETUDIANTS</h1> -->
+        <div align="center" class="search">
+            <input list="list-jobs" required placeholder="Ex.:Job..." type="text" class="searchJob" />
+            <input list="list-localisation" required placeholder="Ex.:Localisation..." type="text" class="searchLocalisation" />
+            <span>Rechercher un stage</span>
+        </div>
+        <datalist id="list-jobs">
+            <option value="DEVELOPPEUR FRONT-END"></option>
+            <option value="DEVELOPPEUR BACK-END"></option>
+            <option value="DEVELOPPEUR FULLSTACK"></option>
+            <option value="ADMINISTRATEUR RESEAUX"> </option>
+            <option value="ADMINISTRATEUR BASE DE DONNEES"></option>
+            <option value="COMMUNITY MANAGER"></option>
+            <option value="COMPTABLE"></option>
+            <option value="ANALYSTE FINANCIER"></option>
+            <option value="INFOGRAPHE"></option>
+            <option value="MONTEUR VIDEO"></option>
+        </datalist>
+        <datalist id="list-localisation">
+            <option value="DAKAR">DAKAR</option>
+            <option value="THIES">DEVELOPPEUR BACK-END</option>
+            <option value="FATICK">DEVELOPPEUR FULLSTACK</option>
+            <option value="DIOURBEL"> </option>
+            <option value="MATAM"></option>
+            <option value="KAOLACK"></option>
+            <option value="KOLDA"></option>
+            <option value="ZIGUINCHOR"></option>
+            <option value="SAINT-LOUIS"></option>
+            <option value="CASAMANCE"></option>
+        </datalist>
+    </div>
+    </div>
     <div class="relative pt-2 lg:pt-2 min-h-screen">
 
         <div class="bg-cover w-full flex justify-center items-center" style="background-image: url('/images/mybackground.jpeg');">

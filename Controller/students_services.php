@@ -71,6 +71,7 @@ function postuler($idEtudiant, $idStage, $dateSoummission)
     $sql = "INSERT INTO candidature
             VALUES ('NULL','$idEtudiant','$idStage','$statut','$dateSoummission') ";
     $result = mysqli_query($connexion, $sql);
+
     return $result;
 }
 

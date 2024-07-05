@@ -25,7 +25,7 @@ function add_entreprise($nom, $secteur, $adresse, $telephone, $mail, $password)
 {
     global $connexion;
     $sql = "INSERT INTO entreprise
-                VALUES (NULL,'$nom','$secteur','$adresse','$telephone','$mail','$password')";
+            VALUES (NULL,'$nom','$secteur','$adresse','$telephone','$mail','$password')";
     $result = mysqli_query($connexion, $sql);
     return $result;
 }

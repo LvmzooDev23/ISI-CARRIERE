@@ -10,12 +10,13 @@ function add_stage($titre, $description, $niveau, $annee, $debutStage, $dureeSta
     return $result;
 }
 
+
 function getAllStage()
 {
     global $connexion;
     $sql = "SELECT * FROM stage,entreprise 
             WHERE entreprise = idEntreprise
-            ORDER BY idStage DESC";
+            ORDER BY datePublication ASC";
     $result = mysqli_query($connexion, $sql)->fetch_all(2);
     return $result;
 }
