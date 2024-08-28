@@ -43,8 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -116,9 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <option value="TH">Tourisme et hôtellerie</option>
                         <option value="EF">Éducation et formation</option>
                     </select>
-                    <input autocomplete="off" type="text" name="secteur" placeholder="Autres..." class="pt-3 pb-2 block w-fit px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200 text-xs">
-                    <label for="name" class="absolute display:inline-block w-1/2 duration-300 top-3 -z-1 origin-0 text-xl text-gray-500">Secteur Entreprise: </label>
-                    <br>
+                    
                     <span class="text-sm text-red-600 hidden" id="error">Veuillez sélectionner ou renseigner un secteur</span>
                 </div>
                 <div class="relative z-0 w-full mb-5">

@@ -49,7 +49,7 @@ function login_entreprise($email, $password)
 {
     global $connexion;
     $sql = "SELECT idEntreprise FROM entreprise WHERE mailEntreprise='$email' 
-                                    AND motDePasseEntreprise='$password'";
+                                    AND passwordEntreprise='$password'";
     if (mysqli_query($connexion, $sql)) {
         $entreprise = mysqli_query($connexion, $sql)->fetch_all(2);
         session_start();
@@ -64,10 +64,10 @@ function getAllCandidaturesFromEntreprise($idEntreprise)
 {
     global $connexion;
     $sql = "SELECT * FROM stage,candidature,etudiant,entreprise 
-            WHERE stage.entreprise = entreprise.idEntreprise 
-            AND candidature.stage = stage.idStage
-            AND stage.entreprise = '$idEntreprise'
-            AND candidature.etudiant = etudiant.idEtudiant";
+            WHERE stage.entrepriseStage = entreprise.idEntreprise 
+            AND candidature.stageCandidature = stage.idStage
+            AND stage.entrepriseStage = '$idEntreprise'
+            AND candidature.etudiantCandidature = etudiant.idEtudiant";
 
     $result = mysqli_query($connexion, $sql)->fetch_all(1);
     return $result;

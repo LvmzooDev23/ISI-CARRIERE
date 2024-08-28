@@ -42,7 +42,7 @@ function getStudentById($id)
     global $connexion;
     $sql = "SELECT * FROM etudiant WHERE idEtudiant =$id";
     if (mysqli_query($connexion, $sql)) {
-        $etudiant = mysqli_query($connexion, $sql)->fetch_all(2);
+        $etudiant = mysqli_query($connexion, $sql)->fetch_all(1);
         return $etudiant;
     }
     return null;
@@ -79,8 +79,8 @@ function getAllCandidatures($idEtudiant)
 {
     global $connexion;
     $sql = "SELECT * FROM candidature,stage
-            WHERE candidature.stage = stage.idStage 
-            AND candidature.etudiant = '$idEtudiant'
+            WHERE candidature.stageCandidature = stage.idStage 
+            AND candidature.etudiantCandidature = '$idEtudiant'
             ORDER BY idCandidature DESC";
     $result = mysqli_query($connexion, $sql)->fetch_all(1);
     return $result;
