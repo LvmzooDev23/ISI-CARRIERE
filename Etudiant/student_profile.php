@@ -50,8 +50,8 @@ require_once("menu.php");
                         <div class="image overflow-hidden">
                             <img class="h-auto w-full mx-auto" src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg" alt="">
                         </div>
-                        <h1 class="text-gray-900 font-bold text-xl leading-8 my-1"><?= $etudiant[0][2] . " " . $etudiant[0][1] ?></h1>
-                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Etudiant(e) en <?= $etudiant[0][6] . " " . $etudiant[0][7] ?></h3>
+                        <h1 class="text-gray-900 font-bold text-xl leading-8 my-1"><?= $etudiant[0]["nomEtudiant"] . " " . $etudiant[0]["prenomEtudiant"] ?></h1>
+                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Etudiant(e) en <?= $etudiant[0]["niveauEtudiant"] . " " . $etudiant[0]["specialiteEtudiant"] ?></h3>
                         <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
                             consectetur adipisicing elit.
                             Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
@@ -89,15 +89,15 @@ require_once("menu.php");
                             <div class="grid md:grid-cols-2 text-sm">
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Prénom</div>
-                                    <div class="px-4 py-2"><?= $etudiant[0][2] ?></div>
+                                    <div class="px-4 py-2"><?= $etudiant[0]["prenomEtudiant"] ?></div>
                                 </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">NOM</div>
-                                    <div class="px-4 py-2"><?= strtoupper($etudiant[0][1]) ?></div>
+                                    <div class="px-4 py-2"><?= strtoupper($etudiant[0]["nomEtudiant"]) ?></div>
                                 </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Adresse email</div>
-                                    <div class="px-4 py-2"><?= $etudiant[0][3] ?></div>
+                                    <div class="px-4 py-2"><?= $etudiant[0]["mailEtudiant"] ?></div>
                                 </div>
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Contact No.</div>

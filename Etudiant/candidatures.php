@@ -4,6 +4,7 @@ require_once("menu.php");
 require_once("../Controller/students_services.php");
 require_once("../Controller/entreprises_services.php");
 $candidatures = getAllCandidatures($_SESSION['etu']);
+// var_dump($candidatures);
 ?>
 <html lang="en">
 
@@ -26,7 +27,7 @@ $candidatures = getAllCandidatures($_SESSION['etu']);
         </thead>
         <tbody>
             <?php foreach ($candidatures as $candidature) : ?>
-                <?php $entreprise = getEntrepriseById($entreprise = $candidature['entreprise']); ?>
+                <?php $entreprise = getEntrepriseById($entreprise = $candidature['entrepriseStage']); ?>
                 <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
                     <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                         <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"></span>
@@ -42,7 +43,7 @@ $candidatures = getAllCandidatures($_SESSION['etu']);
                             <?php echo ($candidature['statutCandidature'] == "ATT") ? "EN ATTENTE" : (($candidature['statutCandidature'] == "ACC") ? "ACCEPTE" : "NON RETENU"); ?>
                         </span>
                     </td>
-
+ 
                 </tr>
             <?php endforeach; ?>
         </tbody>

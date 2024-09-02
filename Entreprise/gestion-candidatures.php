@@ -4,9 +4,8 @@ require_once("../Controller/entreprises_services.php");
 if (isset($_SESSION['etp'])) {
     $candidatures = getAllCandidaturesFromEntreprise($_SESSION['etp']);
 }
-var_dump($candidatures);
-require_once("menu.php");
 // var_dump($candidatures);
+require_once("menu.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

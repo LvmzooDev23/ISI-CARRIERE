@@ -7,10 +7,10 @@ $stage = getStageById($id);
 $etudiant = getStudentById($_SESSION['etu']);
 $dateSoumission = date('Y-m-d');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $candidature = postuler($etudiant[0][0], $stage[0][0], $dateSoumission);
+    $candidature = postuler($etudiant[0]["idEtudiant"], $stage[0]["idStage"], $dateSoumission);
     header('location: ../Etudiant/candidatures.php');
 }
-// var_dump($stage);
+// var_dump($etudiant);
 ?>
 <html lang="fr">
 
