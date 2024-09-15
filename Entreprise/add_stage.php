@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $informations = [$titre, $description, $niveau, $annee, $debutStage, $dureeStage, $deadline, $datePublication, $entreprise];
     if (!in_array(null, $informations)) {
         $stage = add_stage($titre, $description, $niveau, $annee, $debutStage, $dureeStage, $deadline, $datePublication, $entreprise);
+    }else{
+        echo "UN DES CHAMPS EST VIDE";
     }
     if (!$stage) {
         require_once "error.php";

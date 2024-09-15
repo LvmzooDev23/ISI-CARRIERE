@@ -39,8 +39,19 @@ function getAllStageFromEntreprise($idEntreprise)
     global $connexion;
     $sql = "SELECT * FROM stage WHERE stage.entrepriseStage = $idEntreprise";
     if (mysqli_query($connexion, $sql)) {
-        $stage = mysqli_query($connexion, $sql)->fetch_all(2);
+        $stage = mysqli_query($connexion, $sql)->fetch_all(1);
         return $stage;
     }
     return null;
+}
+function nbrSoumissionStage($idStage) {
+    global $connexion;
+    $sql = "SELECT COUNT(*) FROM stage, candidature 
+            WHERE stage.idStage = candidature.stageCandidature
+            AND stage.idStage = $idStage";
+    if (mysqli_query($connexion, $sql)) {
+        $nbr = mysqli_query($connexion, $sql)->fetch_all(1);
+        return $nbr;
+    }
+    return null;   
 }
