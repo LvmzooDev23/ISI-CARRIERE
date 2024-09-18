@@ -21,11 +21,12 @@ $stages = getAllStage();
     <div class="top_page">
         <!-- <h1 class="title_top_page" align="center">DASHBOARD ETUDIANTS</h1> -->
         <div align="center" class="search">
-            <input list="list-jobs" required placeholder="Ex.:Job..." type="text" class="searchJob" />
-            <input list="list-localisation" required placeholder="Ex.:Localisation..." type="text" class="searchLocalisation" />
+            <input list="list-jobs" autocomplete="off" required placeholder="Ex.:Job..." type="text" class="searchJob" />
+            <input list="list-localisation" autocomplete="off" required placeholder="Ex.:Localisation..." type="text" class="searchLocalisation" />
             <span>Rechercher un stage</span>
         </div>
         <datalist id="list-jobs">
+            <!-- Faire un liste des jobs dans la BD -->
             <option value="DEVELOPPEUR FRONT-END"></option>
             <option value="DEVELOPPEUR BACK-END"></option>
             <option value="DEVELOPPEUR FULLSTACK"></option>
@@ -50,10 +51,9 @@ $stages = getAllStage();
             <option value="CASAMANCE"></option>
         </datalist>
     </div>
-    </div>
     <div class="relative pt-2 lg:pt-2 min-h-screen">
 
-        <div class="bg-cover w-full flex justify-center items-center" style="background-image: url('/images/mybackground.jpeg');">
+        <div class="m-14 bg-cover w-full flex justify-center items-center" style="background-image: url('/images/mybackground.jpeg');">
             <div class="w-full bg-white p-5  bg-opacity-40 backdrop-filter backdrop-blur-lg">
                 <div class="w-12/12 mx-auto rounded-2xl bg-white p-5 bg-opacity-40 backdrop-filter backdrop-blur-lg">
 

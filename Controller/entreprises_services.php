@@ -34,7 +34,7 @@ function getAllEntreprises()
 {
     global $connexion;
     $sql = "SELECT * FROM entreprise";
-    $result = mysqli_query($connexion, $sql)->fetch_all(2);
+    $result = mysqli_query($connexion, $sql)->fetch_all(1);
     return $result;
 }
 
