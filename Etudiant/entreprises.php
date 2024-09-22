@@ -24,7 +24,7 @@ $entreprises = getAllEntreprises();
         <div align="center" class="search">
             <input list="list-jobs" autocomplete="off" required placeholder="Ex.:Job..." type="text" class="searchJob" />
             <input list="list-localisation" autocomplete="off" required placeholder="Ex.:Localisation..." type="text" class="searchLocalisation" />
-            <span>Rechercher un stage</span>
+            <span>Rechercher une entreprise</span>
         </div>
         <datalist id="list-jobs">
             <!-- Faire un liste des jobs dans la BD -->
