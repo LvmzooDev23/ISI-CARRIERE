@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once("menu.php");
 require_once("../config.php");
@@ -7,7 +8,7 @@ $entreprises = getAllEntreprises();
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">

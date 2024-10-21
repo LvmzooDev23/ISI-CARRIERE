@@ -10,93 +10,24 @@
 </head>
 
 <body>
-    <a href="#" class="w-full md:w-1/4 inline-flex flex-col rounded-lg p-4 shadow-sm shadow-indigo-100">
-        <img
-            alt=""
-            src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-            class="h-56 w-full rounded-md object-cover" />
-
-        <div class="mt-2">
-            <dl>
-                <div>
-                    <dt class="sr-only">Price</dt>
-
-                    <dd class="text-sm text-gray-500">$240,000</dd>
+    <div class="col-span-full">
+        <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover photo</label>
+        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+            <div class="text-center">
+                <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+                    <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z" clip-rule="evenodd" />
+                </svg>
+                <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                    <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                        <span>Upload a file</span>
+                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                    </label>
+                    <p class="pl-1">or drag and drop</p>
                 </div>
-
-                <div>
-                    <dt class="sr-only">Address</dt>
-
-                    <dd class="font-medium">123 Wallaby Avenue, Park Road</dd>
-                </div>
-            </dl>
-
-            <div class="mt-6 flex items-center gap-8 text-xs">
-                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                    <svg
-                        class="size-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                    </svg>
-
-                    <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Parking</p>
-
-                        <p class="font-medium">2 spaces</p>
-                    </div>
-                </div>
-
-                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                    <svg
-                        class="size-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-
-                    <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Bathroom</p>
-
-                        <p class="font-medium">2 rooms</p>
-                    </div>
-                </div>
-
-                <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                    <svg
-                        class="size-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-
-                    <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Bedroom</p>
-
-                        <p class="font-medium">4 rooms</p>
-                    </div>
-                </div>
+                <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
             </div>
         </div>
-    </a>
+    </div>
 </body>
 
 </html>

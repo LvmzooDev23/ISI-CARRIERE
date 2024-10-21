@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="min-h-screen bg-gray-300 p-0 sm:p-12">
         <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
             <h1 class="text-2xl text-center font-bold mb-8 underline">Formulaire Inscription Entreprise</h1>
-            <form id="form" novalidate method="post">
+            <form id="form" novalidate method="post" enctype="multipart/form-data">
                 <div class="relative z-0 w-full mb-5">
                     <input autocomplete="off" type="text" name="nom" placeholder=" " required class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" />
                     <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Nom Entreprise</label>
@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <option value="TH">Tourisme et hôtellerie</option>
                         <option value="EF">Éducation et formation</option>
                     </select>
-                    
+
                     <span class="text-sm text-red-600 hidden" id="error">Veuillez sélectionner ou renseigner un secteur</span>
                 </div>
                 <div class="relative z-0 w-full mb-5">
@@ -137,7 +137,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="email" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">MOT DE PASSE</label>
                     <span class="text-sm text-red-600 hidden" id="error">Le Champ "MOT DE PASSE" est obligatoire</span>
                 </div>
-
+                <div class="col-span-full">
+                    <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover photo</label>
+                    <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                        <div class="text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+                                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z" clip-rule="evenodd" />
+                            </svg>
+                            <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                                <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                    <span>Upload a file</span>
+                                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                </label>
+                                <p class="pl-1">or drag and drop</p>
+                            </div>
+                            <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
 
 
                 <!--<div class="flex flex-row space-x-4">
