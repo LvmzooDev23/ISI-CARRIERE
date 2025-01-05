@@ -41,7 +41,7 @@ require_once("menu.php");
                                         <div class="font-semibold text-left">Spent</div>
                                     </th>
                                     <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-center">Country</div>
+                                        <div class="font-semibold text-center">Réponse</div>
                                     </th>
                                 </tr>
                             </thead>
@@ -62,8 +62,11 @@ require_once("menu.php");
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="text-left font-medium text-green-500"><?= $candidature['titreStage'] ?></div>
                                         </td>
-                                        <td class="p-2 whitespace-nowrap">
-                                            <div class="text-lg text-center">🇺🇸</div>
+                                        <td class="p-2">
+                                            <div class="">
+                                                <img src="../medias/accept.png" width="15" height="15" alt="">
+                                                <img src="../medias/cross.png" width="15" height="15" alt="">
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

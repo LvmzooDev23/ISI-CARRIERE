@@ -52,12 +52,14 @@ function login_entreprise($email, $password)
                                     AND passwordEntreprise='$password'";
     if (mysqli_query($connexion, $sql)) {
         $entreprise = mysqli_query($connexion, $sql)->fetch_all(2);
-        session_start();
-        $_SESSION['etp'] = $entreprise[0][0];
-        return 1;
-    } else {
-        // header("Location: ../Etudiant/index.php");
-        return 0;
+        if (!empty($entreprise)) {
+            session_start();
+            $_SESSION['etp'] = $entreprise[0][0];
+            return 1;
+        } else {
+            // header("Location: ../Etudiant/index.php");
+            return 0;
+        }
     }
 }
 function getAllCandidaturesFromEntreprise($idEntreprise)

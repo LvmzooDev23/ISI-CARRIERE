@@ -55,12 +55,14 @@ function login_student($email, $password)
                                     AND motDePasseEtudiant='$password'";
     if (mysqli_query($connexion, $sql)) {
         $etudiant = mysqli_query($connexion, $sql)->fetch_all(2);
-        session_start();
-        $_SESSION['etu'] = $etudiant[0][0];
-        return 1;
-    } else {
-        // header("Location: ../Etudiant/index.php");
-        return 0;
+        if (!empty($etudiant)) {
+            session_start();
+            $_SESSION['etu'] = $etudiant[0][0];
+            return 1;
+        } else {
+            // header("Location: ../Etudiant/index.php");
+            return 0;
+        }
     }
 }
 
