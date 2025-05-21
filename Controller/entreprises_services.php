@@ -21,11 +21,11 @@ function verifyEmailEntreprise($email)
     return true;
 }
 
-function add_entreprise($nom, $secteur, $adresse, $telephone, $mail, $password)
+function add_entreprise($nom, $secteur, $adresse, $telephone, $mail, $password, $destination)
 {
     global $connexion;
     $sql = "INSERT INTO entreprise
-            VALUES (NULL,'$nom','$secteur','$adresse','$telephone','$mail','$password')";
+            VALUES (NULL,'$nom','$secteur','$adresse','$telephone','$mail','$password','$destination')";
     $result = mysqli_query($connexion, $sql);
     return $result;
 }
@@ -48,8 +48,7 @@ function getEntrepriseById($id)
 function login_entreprise($email, $password)
 {
     global $connexion;
-    $sql = "SELECT idEntreprise FROM entreprise WHERE mailEntreprise='$email' 
-                                    AND passwordEntreprise='$password'";
+    $sql = "SELECT idEntreprise FROM entreprise WHERE mailEntreprise='$email' AND passwordEntreprise='$password'";
     if (mysqli_query($connexion, $sql)) {
         $entreprise = mysqli_query($connexion, $sql)->fetch_all(2);
         if (!empty($entreprise)) {

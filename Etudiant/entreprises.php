@@ -20,16 +20,16 @@ $entreprises = getAllEntreprises();
 </head>
 
 <body style="background-color: #f5f5f5;">
-    <div class="top_page">
+    <!-- <div class="top_page"> -->
         <!-- <h1 class="title_top_page" align="center">DASHBOARD ETUDIANTS</h1> -->
-        <div align="center" class="search">
+        <!-- <div align="center" class="search">
             <input list="list-jobs" autocomplete="off" required placeholder="Ex.:Job..." type="text" class="searchJob" />
             <input list="list-localisation" autocomplete="off" required placeholder="Ex.:Localisation..." type="text" class="searchLocalisation" />
             <span>Rechercher une entreprise</span>
         </div>
-        <datalist id="list-jobs">
+        <datalist id="list-jobs"> -->
             <!-- Faire un liste des jobs dans la BD -->
-            <option value="DEVELOPPEUR FRONT-END"></option>
+            <!-- <option value="DEVELOPPEUR FRONT-END"></option>
             <option value="DEVELOPPEUR BACK-END"></option>
             <option value="DEVELOPPEUR FULLSTACK"></option>
             <option value="ADMINISTRATEUR RESEAUX"> </option>
@@ -51,8 +51,8 @@ $entreprises = getAllEntreprises();
             <option value="ZIGUINCHOR"></option>
             <option value="SAINT-LOUIS"></option>
             <option value="CASAMANCE"></option>
-        </datalist>
-    </div>
+        </datalist> -->
+    <!-- </div> -->
     <div class="pt-2 lg:pt-2 min-h-screen">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto">
             <?php foreach ($entreprises as $entreprise) { ?>
@@ -79,7 +79,7 @@ $entreprises = getAllEntreprises();
 
                         <div class="mt-6 flex items-center gap-8 text-xs">
                             <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                                <img src="../medias/location.png" width="30" height="30" alt="">
+                                <img src="../medias/location.png" width="20" height="20" alt="">
 
                                 <div class="mt-1.5 sm:mt-0">
                                     <p class="text-gray-500">Adresse</p>
@@ -89,44 +89,21 @@ $entreprises = getAllEntreprises();
                             </div>
 
                             <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                                <svg
-                                    class="size-4 text-indigo-700"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                                </svg>
+                                <img src="../medias/enveloppe.png" width="20" height="20" alt="">
 
                                 <div class="mt-1.5 sm:mt-0">
-                                    <p class="text-gray-500">Bathroom</p>
+                                    <p class="text-gray-500">Adresse Mail</p>
 
-                                    <p class="font-medium">2 rooms</p>
+                                    <p class="font-medium"><?= $entreprise["mailEntreprise"] ?></p>
                                 </div>
                             </div>
 
                             <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                                <svg
-                                    class="size-4 text-indigo-700"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                </svg>
-
+                               <img src="../medias/telephone.png" width="20" height="20" alt="">
                                 <div class="mt-1.5 sm:mt-0">
-                                    <p class="text-gray-500">Bedroom</p>
+                                    <p class="text-gray-500">Téléphone</p>
 
-                                    <p class="font-medium">4 rooms</p>
+                                    <p class="font-medium"><?= $entreprise["telephoneEntreprise"] ?></p>
                                 </div>
                             </div>
                         </div>

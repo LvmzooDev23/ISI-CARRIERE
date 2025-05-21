@@ -16,6 +16,7 @@ require_once("menu.php");
 
 <body>
     <?php var_dump($entreprise) ?>
+    <img src="<?= $entreprise[0][7] ?>" alt="" width="200" height="200">
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
         <div class="h-32 rounded-lg bg-gray-200">
             <div class="flow-root">

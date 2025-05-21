@@ -20,13 +20,13 @@ $stages = getAllStage();
 <body>
     <div class="top_page">
         <!-- <h1 class="title_top_page" align="center">DASHBOARD ETUDIANTS</h1> -->
-        <div align="center" class="search">
+        <!-- <div align="center" class="search">
             <input list="list-jobs" autocomplete="off" required placeholder="Ex.:Job..." type="text" class="searchJob" />
             <input list="list-localisation" autocomplete="off" required placeholder="Ex.:Localisation..." type="text" class="searchLocalisation" />
             <span>Rechercher un stage</span>
-        </div>
-        <datalist id="list-jobs">
-            <!-- Faire un liste des jobs dans la BD -->
+        </div> -->
+        <!-- <datalist id="list-jobs">
+             Faire un liste des jobs dans la BD 
             <option value="DEVELOPPEUR FRONT-END"></option>
             <option value="DEVELOPPEUR BACK-END"></option>
             <option value="DEVELOPPEUR FULLSTACK"></option>
@@ -37,8 +37,8 @@ $stages = getAllStage();
             <option value="ANALYSTE FINANCIER"></option>
             <option value="INFOGRAPHE"></option>
             <option value="MONTEUR VIDEO"></option>
-        </datalist>
-        <datalist id="list-localisation">
+        </datalist> -->
+        <!-- <datalist id="list-localisation">
             <option value="DAKAR">DAKAR</option>
             <option value="THIES">DEVELOPPEUR BACK-END</option>
             <option value="FATICK">DEVELOPPEUR FULLSTACK</option>
@@ -49,7 +49,10 @@ $stages = getAllStage();
             <option value="ZIGUINCHOR"></option>
             <option value="SAINT-LOUIS"></option>
             <option value="CASAMANCE"></option>
-        </datalist>
+        </datalist> -->
+        <p>
+            "Le premier stage n'est pas une destination, mais le début du chemin où l'on transforme le savoir en savoir-faire."
+        </p>
     </div>
     <div class="relative pt-2 lg:pt-2 min-h-screen">
 

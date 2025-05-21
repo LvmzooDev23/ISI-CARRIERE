@@ -30,12 +30,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }, NULL, TRUE);
             throw new LogicException("Tous les champs sont obligatoires");
         }
+        /* ======== AJOUT IMAGE ==========*/
+        // Connexion à la base de données
 
-        $informations = [$name, $secteur, $adresse, $telephone, $email, $password];
-        $entreprise = add_entreprise($name, $secteur, $adresse, $telephone, $email, $password);
-        if ($entreprise) {
-            include_once('success.php');
+        if (isset($_FILES['logo'])) {
+            $image = $_FILES['logo'];
+
+            // Vérification et sécurisation
+            if ($image['error'] === 0 && $image['size'] < 5 * 1024 * 1024) { // max 5MB
+                $ext = strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
+                $allowed = ['jpg', 'jpeg', 'png', 'gif'];
+
+                if (in_array($ext, $allowed)) {
+                    $filename = uniqid() . '.' . $ext;
+                    $destination = 'uploads/' . $filename;
+
+                    // Créer le dossier s’il n’existe pas
+                    if (!is_dir('uploads')) {
+                        mkdir('uploads', 0777, true);
+                    }
+
+                    if (move_uploaded_file($image['tmp_name'], $destination)) {
+                        // Enregistrement dans la base de données
+                        // $stmt = $pdo->prepare("INSERT INTO images (path) VALUES (:path)");
+                        // $stmt->execute(['path' => $destination]);
+                        $informations = [$name, $secteur, $adresse, $telephone, $email, $password];
+                        $entreprise = add_entreprise($name, $secteur, $adresse, $telephone, $email, $password,$destination);
+                        if ($entreprise) {
+                            include_once('success.php');
+                        }
+                        // echo "Image uploadée avec succès !<br>";
+                        // echo '<img src="' . $destination . '" width="200">';
+                    } else {
+                        echo "Erreur lors du déplacement du fichier.";
+                    }
+                } else {
+                    echo "Format de fichier non autorisé.";
+                }
+            } else {
+                echo "Fichier trop volumineux ou erreur de transfert.";
+            }
         }
+
+        /* ======== FIN AJOUT IMAGE ==========*/
     } catch (Throwable $e) {
         // Handle exception
         error_log("Exception caught in add_entreprise.php\n" . $e->getMessage() . "\n" . $e->getFile() . ':' . $e->getLine() . "\n" . $e->getTraceAsString());
@@ -147,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div class="mt-4 flex text-sm leading-6 text-gray-600">
                                 <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                     <span>Upload a file</span>
-                                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    <input id="file-upload" name="logo" type="file" class="sr-only">
                                 </label>
                                 <p class="pl-1">or drag and drop</p>
                             </div>

@@ -76,7 +76,6 @@ if (isset($_POST['connexionPartner'])) {
             width: 100%;
             color: #d3d3d3;
         }
-
         /*Text*/
         .title {
             margin-bottom: 1rem;
@@ -84,7 +83,6 @@ if (isset($_POST['connexionPartner'])) {
             font-weight: 500;
             color: #f5f5f5;
         }
-
         /*Buttons*/
         .btn {
             margin: 1rem;
@@ -108,7 +106,6 @@ if (isset($_POST['connexionPartner'])) {
             font-size: 15px;
             transition: color .3s ease-out;
         }
-
         .btn-link>a {
             color: #ffeba7;
             text-decoration: none;
@@ -155,8 +152,9 @@ if (isset($_POST['connexionPartner'])) {
                 <button class="btn" name="connexionEtudiant" type="submit">Connexion Etudiant</button> <br>
                 <button class="btn" name="connexionPartner" type="submit">Connexion Partenaire</button> <br>
                 <button class="btn" name="connexionAdmin" type="submit">Connexion Administrateur</button>
-                <p class="btn-link">Pas encore inscrit ? <a class="text-sky-500 text-center font-bold underline"
-                        href="add_student.php">inscrivez-vous ici</a></p>
+                <p class="btn-link">Pas encore inscrit ?
+                    <a class="text-sky-500 text-center font-bold underline" href="add_student.php">
+                        inscrivez-vous ici </a></p>
             </form>
         </div>
     </div>
