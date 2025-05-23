@@ -20,39 +20,7 @@ $entreprises = getAllEntreprises();
 </head>
 
 <body style="background-color: #f5f5f5;">
-    <!-- <div class="top_page"> -->
-        <!-- <h1 class="title_top_page" align="center">DASHBOARD ETUDIANTS</h1> -->
-        <!-- <div align="center" class="search">
-            <input list="list-jobs" autocomplete="off" required placeholder="Ex.:Job..." type="text" class="searchJob" />
-            <input list="list-localisation" autocomplete="off" required placeholder="Ex.:Localisation..." type="text" class="searchLocalisation" />
-            <span>Rechercher une entreprise</span>
-        </div>
-        <datalist id="list-jobs"> -->
-            <!-- Faire un liste des jobs dans la BD -->
-            <!-- <option value="DEVELOPPEUR FRONT-END"></option>
-            <option value="DEVELOPPEUR BACK-END"></option>
-            <option value="DEVELOPPEUR FULLSTACK"></option>
-            <option value="ADMINISTRATEUR RESEAUX"> </option>
-            <option value="ADMINISTRATEUR BASE DE DONNEES"></option>
-            <option value="COMMUNITY MANAGER"></option>
-            <option value="COMPTABLE"></option>
-            <option value="ANALYSTE FINANCIER"></option>
-            <option value="INFOGRAPHE"></option>
-            <option value="MONTEUR VIDEO"></option>
-        </datalist>
-        <datalist id="list-localisation">
-            <option value="DAKAR">DAKAR</option>
-            <option value="THIES">DEVELOPPEUR BACK-END</option>
-            <option value="FATICK">DEVELOPPEUR FULLSTACK</option>
-            <option value="DIOURBEL"> </option>
-            <option value="MATAM"></option>
-            <option value="KAOLACK"></option>
-            <option value="KOLDA"></option>
-            <option value="ZIGUINCHOR"></option>
-            <option value="SAINT-LOUIS"></option>
-            <option value="CASAMANCE"></option>
-        </datalist> -->
-    <!-- </div> -->
+     
     <div class="pt-2 lg:pt-2 min-h-screen">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto">
             <?php foreach ($entreprises as $entreprise) { ?>

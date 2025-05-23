@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("../config.php");
 require_once("../Controller/entreprises_services.php");
 if (isset($_SESSION['etp'])) {
     $candidatures = getAllCandidaturesFromEntreprise($_SESSION['etp']);
@@ -13,11 +14,26 @@ require_once("menu.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= $title ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+    <style>
+        .voirDetails{
+            color: white;
+            background-color: lightblue;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid green;
+            cursor: pointer;
+        }
+        .voirDetails:hover{
+            color: black;
+            background-color: blue;
+            
+        }
+    </style>
     <!-- component -->
     <section class="antialiased bg-gray-100 text-gray-600 h-screen px-4">
         <div class="flex flex-col justify-center h-full">
@@ -38,8 +54,13 @@ require_once("menu.php");
                                         <div class="font-semibold text-left">Email</div>
                                     </th>
                                     <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-left">Spent</div>
+                                        <div class="font-semibold text-left">Poste</div>
                                     </th>
+                                    
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-left">Statut</div>
+                                    </th>
+                                    
                                     <th class="p-2 whitespace-nowrap">
                                         <div class="font-semibold text-center">Réponse</div>
                                     </th>
@@ -60,12 +81,16 @@ require_once("menu.php");
                                             <div class="text-left"><?= $candidature['mailEtudiant'] ?></div>
                                         </td>
                                         <td class="p-2 whitespace-nowrap">
-                                            <div class="text-left font-medium text-green-500"><?= $candidature['titreStage'] ?></div>
+                                            <div class="text-left font-medium text-dark-500"><?= $candidature['titreStage'] ?></div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left font-medium text-<?php echo ($candidature['statutCandidature'] == "ATT") ? "yellow" : (($candidature['statutCandidature'] == "ACC") ? "green" : "red"); ?>-500">
+                                            <?php echo ($candidature['statutCandidature'] == "ATT") ? "EN ATTENTE" : (($candidature['statutCandidature'] == "ACC") ? "ACCEPTE" : "NON RETENU"); ?>
+                                        </div>
                                         </td>
                                         <td class="p-2">
-                                            <div class="">
-                                                <img src="../medias/accept.png" width="15" height="15" alt="">
-                                                <img src="../medias/cross.png" width="15" height="15" alt="">
+                                            <div class="reponse-icone">
+                                                <a class="voirDetails" href="detail_candidature.php?id=<?= $candidature['idCandidature'] ?>">VOIR DETAILS</a>
                                             </div>
                                         </td>
                                     </tr>

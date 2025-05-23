@@ -16,7 +16,7 @@ function getAllStage()
     global $connexion;
     $sql = "SELECT * FROM stage,entreprise 
             WHERE stage.entrepriseStage = entreprise.idEntreprise
-            ORDER BY stage.datePubStage ASC";
+            ORDER BY stage.datePubStage DESC";
     $result = mysqli_query($connexion, $sql)->fetch_all(1);
     return $result;
 }

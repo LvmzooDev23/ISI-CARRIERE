@@ -6,7 +6,7 @@ $entreprise = getEntrepriseById($_SESSION['etp']);
 require_once("menu.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-FR">
 
 <head>
     <meta charset="UTF-8">

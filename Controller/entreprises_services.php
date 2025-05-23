@@ -73,3 +73,14 @@ function getAllCandidaturesFromEntreprise($idEntreprise)
     $result = mysqli_query($connexion, $sql)->fetch_all(1);
     return $result;
 }
+function getCandidatureById($idCandidature) {
+    global $connexion;
+    $sql = "SELECT * FROM stage,candidature,etudiant  
+            WHERE candidature.stageCandidature = stage.idStage
+            AND candidature.etudiantCandidature = etudiant.idEtudiant
+            AND candidature.idCandidature = $idCandidature";
+
+    $result = mysqli_query($connexion, $sql)->fetch_assoc();
+    return $result;
+      
+}
