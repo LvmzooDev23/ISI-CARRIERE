@@ -22,6 +22,7 @@ $candidatures = getAllCandidatures($_SESSION['etu']);
             <tr>
                 <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Entreprise / Startup</th>
                 <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Titre de Stage</th>
+                <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Date de Candidature</th>
                 <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
             </tr>
         </thead>
@@ -34,11 +35,16 @@ $candidatures = getAllCandidatures($_SESSION['etu']);
                         <?= $entreprise[0][1] ?>
                     </td>
                     <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
+                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"></span>
                         <?= $candidature['titreStage'] ?>
                     </td>
                     <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
+                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"></span>
+                        <?php $dateCandidature = new DateTime($candidature['soumissionCandidature']);
+                        echo $dateCandidature->format('d/m/Y') ?>
+                    </td>
+                    <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                        <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"></span>
                         <span class="rounded bg-<?php echo ($candidature['statutCandidature'] == "ATT") ? "yellow" : (($candidature['statutCandidature'] == "ACC") ? "green" : "red"); ?>-400 py-1 px-3 text-xs font-bold">
                             <?php echo ($candidature['statutCandidature'] == "ATT") ? "EN ATTENTE" : (($candidature['statutCandidature'] == "ACC") ? "ACCEPTE" : "NON RETENU"); ?>
                         </span>

@@ -84,3 +84,16 @@ function getCandidatureById($idCandidature) {
     return $result;
       
 }
+
+function validerCandidature($candidature) {
+    global $connexion;
+    $sql = "UPDATE candidature SET statutCandidature = 'ACC' WHERE idCandidature = '$candidature'";
+    $result = mysqli_query($connexion, $sql);
+    return $result; 
+}
+function refuserCandidature($candidature) {
+    global $connexion;
+    $sql = "UPDATE candidature SET statutCandidature = 'REF' WHERE idCandidature = '$candidature'";
+    $result = mysqli_query($connexion, $sql);
+    return $result;
+}

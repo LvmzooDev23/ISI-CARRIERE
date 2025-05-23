@@ -87,3 +87,12 @@ function getAllCandidatures($idEtudiant)
     $result = mysqli_query($connexion, $sql)->fetch_all(1);
     return $result;
 }
+function verifCandidatureEtudiant($idEtudiant, $idStage)
+{
+    global $connexion;
+    $sql = "SELECT * FROM candidature 
+            WHERE etudiantCandidature = '$idEtudiant'
+            AND stageCandidature = '$idStage'";
+    $result = mysqli_query($connexion, $sql)->fetch_all(1);
+    return $result;
+}
