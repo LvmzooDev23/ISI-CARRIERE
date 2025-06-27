@@ -54,10 +54,10 @@ $stages = getAllStage();
             "Le premier stage n'est pas une destination, mais le début du chemin où l'on transforme le savoir en savoir-faire."
         </p>
     </div>
-    <div class="relative pt-2 lg:pt-2 min-h-screen">
+    <div class="relative pt-2 lg:pt-2 min-w-screen">
 
-        <div class="m-14 bg-cover w-full flex justify-center items-center" style="background-image: url('/images/mybackground.jpeg');">
-            <div class="w-full bg-white p-5  bg-opacity-40 backdrop-filter backdrop-blur-lg">
+        <div class="m-14 bg-cover flex justify-center items-center" style="background-image: url('/images/mybackground.jpeg');">
+            <div class="bg-white p-5 bg-opacity-40 backdrop-filter backdrop-blur-lg">
                 <div class="w-12/12 mx-auto rounded-2xl bg-white p-5 bg-opacity-40 backdrop-filter backdrop-blur-lg">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-center px-2 mx-auto">
